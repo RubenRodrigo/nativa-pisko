@@ -25,7 +25,7 @@ SECRET_KEY = 'xh6_8dvq7e^!y3$atxf7&k5gx77gqa449p-5%_(%sl8ck4n4*p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','www.pisko.ml', 'pisko.ml']
 
 
 # Application definition
