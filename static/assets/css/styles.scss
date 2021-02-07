@@ -1,35 +1,12 @@
+// Modify only .scss files, don't touch styles.css
+
 @import "components/globals";
+@import "components/navbar";
 @import "components/masonry";
 @import "components/grid";
+@import "components/proyectos";
+@import "components/tienda";
+@import "components/carousel";
+@import "components/producto";
+@import "components/footer";
 
-.logo{
-    max-height: 60px;
-}
-.nav-item.active .nav-link{
-    color: $color-secundario !important;
-}
-.nav-item{
-    text-transform: uppercase;
-    .nav-link{
-        font-size: 13px;
-        font-family: 'Rubik', sans-serif;
-        color: $color-primario !important;
-    }    
-    .nav-link:hover{
-        color: $color-secundario !important;
-    }
-}
-.proyectos{
-    background-color: $color-claro;
-    img{
-        max-height: 350px;
-        border-radius: 0px;
-        object-fit: cover;
-    }
-    h5{
-        color: $color-secundario;
-        &:hover{
-            font-weight: bold;
-        }
-    }
-}

@@ -6,7 +6,7 @@
         border-radius: 5px;
         position: relative;
         width: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         overflow: hidden;
         break-inside: avoid;
         background-color: $color-secundario;                
@@ -22,16 +22,17 @@
                 opacity: 1;
             }              
         }
+        a {
+            text-decoration: none;
+        }
         .precio{            
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: $color-claro;
-            color: $color-secundario;
+            background-color: $color-claro;            
             padding: 12px 5px;
             border-radius: 5px;
             font-size: 15px;
-            font-weight: bold;
         }
         .ver{    
             opacity: 0;        
@@ -51,7 +52,17 @@
             bottom: 0%;
             padding: 10px 20px;
             color: $color-claro;
-            transition: ease-in-out 0.3s; 
+            transition: ease-in-out 0.3s;
+            &__descripcion{
+                color: $color-claro;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            &__nombre{
+                color: $color-claro;                
+            }
         }
     }
     @media (max-width: 1200px){

@@ -1,0 +1,20 @@
+.navbar{
+    .logo{
+        max-height: 100px;
+        max-width: 100px;        
+    }
+    .nav-item.active .nav-link{
+        color: $color-secundario !important;
+    }
+    .nav-item{
+        text-transform: uppercase;
+        .nav-link{
+            font-size: 13px;
+            font-family: 'Rubik', sans-serif;
+            color: $color-primario !important;
+        }    
+        .nav-link:hover{
+            color: $color-secundario !important;
+        }
+    }
+}

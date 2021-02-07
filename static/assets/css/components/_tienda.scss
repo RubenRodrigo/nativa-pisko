@@ -1,0 +1,35 @@
+.top{
+    &__categoria{
+        margin-bottom: 15px;
+    }
+    &__direccion{
+        .active{
+            border-bottom: 1px solid $color-primario;
+            font-weight: bold;
+            color: $color-primario;
+            text-decoration: none;            
+        }
+        *{
+            display: inline-block;
+            cursor: pointer;
+            &:hover{
+                border-bottom: 1px solid $color-primario;                
+                font-weight: bold;
+            }
+        }
+    }
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.paginacion{
+    .pagination{
+        .page-item a{
+            border-radius: 0px;
+            border: 1px solid $color-primario;
+            color: $color-primario;
+            &:hover{
+                border: 2px solid black;
+            }
+        }
+    }
+}

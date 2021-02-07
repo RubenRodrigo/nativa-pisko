@@ -1,0 +1,21 @@
+.carousel{            
+    &-item{
+        height: 31rem;
+        background-color: $color-primario;
+        img{
+            object-fit: cover;
+            opacity: .5;            
+        }
+        a.btn{
+            background-color: $color-claro !important;
+            &:hover{
+                background-color: $color-primario !important;
+            }
+        }
+    }
+}
+.carousel--producto{
+    img{
+        opacity: 1;
+    }
+}
