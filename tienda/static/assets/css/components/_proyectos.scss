@@ -1,0 +1,15 @@
+.proyectos{
+    background-color: $color-claro;
+    img{
+        max-height: 350px;
+        border-radius: 0px;
+        object-fit: cover;
+    }
+    a.proyecto-ver{
+        color: $color-secundario;
+        cursor: pointer;
+        &:hover{
+            font-weight: bold;
+        }
+    }
+}

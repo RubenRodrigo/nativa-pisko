@@ -1,0 +1,30 @@
+.producto{
+    &__info{
+        *{
+            margin-bottom: 20px;
+        }
+    }
+    &__colores{
+        display: flex;
+        #active{
+            border: 1px solid black;
+        }
+    }
+    &__color{
+        margin: 10px 15px;
+        padding: 4px;
+        border-radius: 50px;
+        cursor: pointer;
+        &:hover{
+            border: 1px solid rgb(92, 90, 90);
+        }        
+        *{
+            display: block;
+            width: 25px;
+            height: 25px;
+            margin: 0%;
+            border-radius: 15px;
+            box-shadow: 1px 1px 1px 1px rgb(179, 176, 176);
+        }
+    }
+}

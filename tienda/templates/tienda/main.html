@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Pisko</title>
   <!-- ======= Google Fonts ======= -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light border-bottom">        
           <div class="container-fluid">
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="/">
               <img class="logo" src="{% static 'assets/img/logo.png' %}" alt="">
 						</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,30 +34,127 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav m-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Conócenos</a>
+                  <a class="nav-link" aria-current="page" href="/">Conócenos</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Tienda</a>
-                </li>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button">
+                    Tienda
+                  </a>
+                  <div class="categorias-movil" id="categorias-movil">                    
+                    <ul class="categorias-lista">
+                      <li><h6><a href="{% url 'tienda' %}">Todo</a></h6></li>
+                      <li>
+                        <h6><a href="">Damas</a></h6>
+                        <ul>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <h6><a href="">Caballeros</a></h6>
+                        <ul>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <h6><a href="">Niños</a></h6>
+                        <ul>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                          <li><a href="">Sweater</a></li>
+                        </ul>
+                      </li>
+                    </ul>                              
+                  </div>
+                </li> 
                 <li class="nav-item">
                   <a class="nav-link" href="#">Colecciones</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Terminos Comerciales</a>
+                  <a class="nav-link" href="{% url 'servicio' %}">Servicio al cliente</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Nuestro Compromiso</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contáctanos</a>
+                  <a class="nav-link" href="{% url 'contactos' %}">Contáctanos</a>
                 </li>
               </ul>
 							<i class="bi bi-person-fill pe-3"></i>
 							<i class="bi bi-cart-fill"></i>
             </div>
           </div>
-        </nav>
-			
+          <div class="categorias" id="categorias">
+            <div class="container">
+              <div class="grid--tienda">
+                <div>
+                  <h6>
+                    <a href="{% url 'tienda' %}">
+                      Todo                      
+                    </a>
+                  </h6>
+                </div>
+                <div>
+                  <h6>
+                    <a href="#">
+                      Damas
+                    </a>
+                  </h6>
+                  <ul>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h6>
+                    <a href="#">
+                      Caballeros
+                    </a>
+                  </h6>
+                  <ul>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h6>
+                    <a href="#">
+                      Niños
+                    </a>
+                  </h6>
+                  <ul>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                    <li>
+                      <a href="#">Sweater</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>            
+          </div>          
+        </nav>			
       </header>
     <!-- End Header -->
 
@@ -65,7 +162,17 @@
     {% block content %}
     {% endblock content %}
     <!-- ======= End Content ======= --> 
-    
+    <footer>
+      <div class="container">
+        <div class="row justify-content-md-center p-4">
+          <div class="col-md-auto">
+            <h6 class="text-center">
+              &copy; Copyright <strong><span>Cara Cruz</span></strong>. All Rights Reserved
+            </h6>            
+            </div>
+        </div>
+      </div>
+    </footer>
     <script src="{% static 'assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
 </body>
