@@ -1,6 +1,7 @@
 .navbar{
     .logo{
-        max-height: 60px;
+        max-height: 100px;
+        max-width: 100px;        
     }
     .nav-item.active .nav-link{
         color: $color-secundario !important;

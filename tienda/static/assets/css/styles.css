@@ -20,7 +20,8 @@ img {
 }
 
 .navbar .logo {
-  max-height: 60px;
+  max-height: 100px;
+  max-width: 100px;
 }
 
 .navbar .nav-item.active .nav-link {
