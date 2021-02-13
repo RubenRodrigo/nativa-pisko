@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pisko</title>
+	<title>Monasterio</title>
   <!-- ======= Google Fonts ======= -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -38,13 +38,13 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button">
-                    Tienda
+                    Catalogo
                   </a>
                   <div class="categorias-movil" id="categorias-movil">                    
                     <ul class="categorias-lista">
                       <li><h6><a href="{% url 'tienda' %}">Todo</a></h6></li>
                       <li>
-                        <h6><a href="">Damas</a></h6>
+                        <h6><a href="">Para Ellos</a></h6>
                         <ul>
                           <li><a href="">Sweater</a></li>
                           <li><a href="">Sweater</a></li>
@@ -53,16 +53,7 @@
                         </ul>
                       </li>
                       <li>
-                        <h6><a href="">Caballeros</a></h6>
-                        <ul>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h6><a href="">Niños</a></h6>
+                        <h6><a href="">Para Ellas</a></h6>
                         <ul>
                           <li><a href="">Sweater</a></li>
                           <li><a href="">Sweater</a></li>
@@ -74,13 +65,13 @@
                   </div>
                 </li> 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Colecciones</a>
+                  <a class="nav-link" href="{% url 'colecciones' %}">Colecciones</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'servicio' %}">Servicio al cliente</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Nuestro Compromiso</a>
+                  <a class="nav-link" href="{% url 'compromiso' %}">Nuestro Compromiso</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'contactos' %}">Contáctanos</a>
@@ -103,7 +94,7 @@
                 <div>
                   <h6>
                     <a href="#">
-                      Damas
+                      Para Ellos
                     </a>
                   </h6>
                   <ul>
@@ -121,28 +112,13 @@
                 <div>
                   <h6>
                     <a href="#">
-                      Caballeros
+                      Para Ellas
                     </a>
                   </h6>
                   <ul>
                     <li>
                       <a href="#">Sweater</a>
                     </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h6>
-                    <a href="#">
-                      Niños
-                    </a>
-                  </h6>
-                  <ul>
                     <li>
                       <a href="#">Sweater</a>
                     </li>

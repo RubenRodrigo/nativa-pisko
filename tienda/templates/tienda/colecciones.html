@@ -1,0 +1,55 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+    <section class="colecciones">
+        <div class="hero">
+            <div class="hero__img" style="background: url({% static 'assets/img/dama.jpg' %}) no-repeat center; background-size: cover;">
+                <div class="hero__border"></div>
+            </div>
+            <div class="hero__info">
+                <h1>Eco</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, nemo.</p>            
+            </div>
+        </div>
+        <div class="coleccion">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 coleccion__info">
+                        <div class="container">
+                            <h3>Eco</h3>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae quos ratione adipisci excepturi quo, magnam reiciendis ut fugiat nostrum numquam non hic accusantium sunt facere molestiae, delectus esse in provident vero optio consequuntur laboriosam ad minus. Quo, nulla ipsum modi sapiente accusantium et voluptate necessitatibus expedita debitis, beatae, vero eius.</p> 
+                        </div>
+                   
+                    </div>
+                    <div class="col-md-7 coleccion__imagenes">
+                        <div class="row pb-5">
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                        </div>
+                        <div class="row pb-5">
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                            <div class="col-4 coleccion__img">
+                                <img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+{% endblock content %}

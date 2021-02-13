@@ -7,6 +7,12 @@ def index(request):
 def tienda(request):
     return render(request, 'tienda/tienda.html')
 
+def colecciones(request):
+    return render(request, 'tienda/colecciones.html')
+
+def compromiso(request):
+    return render(request, 'tienda/compromiso.html')
+
 def producto(request, producto_id):
     return render(request, 'tienda/producto.html')
 
