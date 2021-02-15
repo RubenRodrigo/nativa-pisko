@@ -1,7 +1,43 @@
 .compromiso{
     .amautas{
-        background-color: $color-terciario;
+        .compromiso__background{
+            background-color: rgb(12, 41, 12);
+        }
+        .background__img{
+            .info{
+                background-color: rgba(43, 28, 14, 0.712);
+                &:hover{                    
+                    opacity: 0;
+                }
+            }
+        }
     }
+    .ambiente{
+        .compromiso__background{
+            background-color: rgba(44, 20, 11, 0.795);
+        }
+        .background__img{
+            .info{
+                background-color: rgba(43, 28, 14, 0.712);
+                &:hover{                    
+                    opacity: 0;
+                }
+            }
+        }
+    }
+    .manos{
+        .compromiso__background{
+            background-color: rgb(61, 75, 11);
+        }
+        .background__img{
+            .info{
+                background-color: rgba(43, 28, 14, 0.712);
+                &:hover{                    
+                    opacity: 0;
+                }
+            }
+        }
+    }    
     .amautas__galeria{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;        
@@ -19,4 +55,95 @@
             }
         }
     }
+    .container{
+        max-width: 1300px;
+        padding: 0;
+        .row{
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .info{
+        padding: 30px;
+        h1{            
+            font-family: 'Euphoria Script', cursive;                
+        }            
+    }
+    
+    .background__info{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $color-claro;
+        .info{
+            h1{
+                font-size: 3.5rem;
+            }
+        }
+    }    
+    &__img{        
+        .background__img{
+            position: relative;
+            height: 90vh;
+            img{                
+                object-fit: cover;
+            }
+            .info{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $color-claro;
+                border: 3px solid $color-terciario;
+                h1{
+                    font-size: 7rem;
+                    letter-spacing: 7px;
+                }       
+            }
+        }        
+    }
+    .rostros{
+        background-color: $color-terciario;
+        .rostros__titulo{
+            h1{
+                font-family: 'Euphoria Script', cursive;
+                text-align: center;
+                padding: 20px;
+                color: $color-primario;
+                font-size: 7rem;
+            }
+        }
+        .rostros__grid{
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            .grid__item{                
+                position: relative;
+                .rostro__info{
+                    text-align: center;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 0px;
+                    color: $color-claro;
+                    overflow: hidden;
+                    transition: all 0.5s ease-in;
+                    h2{
+                        font-family: 'Euphoria Script', cursive;
+                        font-size: 3.5rem;
+                    }
+                }
+                &:hover{
+                    .rostro__info{
+                        background: rgba(0, 0, 0, 0.5);
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
 }

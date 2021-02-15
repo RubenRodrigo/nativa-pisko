@@ -4,6 +4,7 @@ $color-secundario: rgb(155, 141, 78);
 $color-terciario: rgb(241, 237, 220);
 body{    
     padding-top: 6rem;
+    font-family: 'Roboto', sans-serif !important;
 }
 img{
     width: 100%;
@@ -17,4 +18,14 @@ img{
 .precio--real{
     color: $color-secundario;    
     font-weight: bold;
+}
+.ver{
+    position: absolute;
+    padding: 6px 12px;
+    background-color: $color-claro;
+    border: 0px;
+    border-radius: 5px;            
+    top: 49%;
+    left: 49%;
+    transform: translate(-50%, -50%);
 }

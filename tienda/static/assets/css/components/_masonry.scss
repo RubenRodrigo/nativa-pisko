@@ -36,14 +36,6 @@
         }
         .ver{    
             opacity: 0;        
-            position: absolute;
-            padding: 6px 12px;
-            background-color: $color-claro;
-            border: 0px;
-            border-radius: 5px;            
-            top: 49%;
-            left: 49%;
-            transform: translate(-50%, -50%);
             transition: ease-in-out 0.3s;
         }
         .info{
