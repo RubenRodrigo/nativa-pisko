@@ -1,0 +1,32 @@
+.coleccion{
+  &__img{
+    position: relative;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+    &:hover{
+      img{
+        opacity: 0.5;
+      }
+      .coleccion__btn.ver{
+        opacity: 1;
+        &:hover{
+          background: $color-claro;
+          color: $color-primario;
+        }
+      }
+      background: $color-secundario;      
+    }
+  }
+  &__btn.ver{
+    color: $color-claro;
+    background: none;
+    border: 1px solid $color-primario;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+  }
+}
+
+// MODAL
+.modal{
+  background-color: rgba($color: #ffffff, $alpha: 0.7);  
+}
