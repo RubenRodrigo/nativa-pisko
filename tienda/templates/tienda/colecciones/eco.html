@@ -1,0 +1,77 @@
+{% load static %}
+<div class="eco">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 eco__info">
+        <div class="container">
+          <h3>Eco</h3>
+          <p>Prendas tejidas a mano con hilado en fibra de alpaca teñido con colorantes naturales como la
+            cochinilla, índigo y molle</p>
+        </div>
+      </div>
+      <div class="col-md-7 eco__imagenes">
+        <div class="row pb-5">
+          <div class="col eco__modal">
+            <div class="eco__img">
+              <img src="{% static 'assets/img/colecciones/ECO/eco1.jpg' %}" width="100" alt="">
+              <!-- Button trigger modal -->
+              <button type="button" class="eco__btn ver" data-bs-toggle="modal"
+                data-bs-target="#exampleModal1">
+                Ver
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <img src="{% static 'assets/img/colecciones/ECO/eco1.jpg' %}" width="100" alt="">
+                  </div>
+                  <div class="modal-footer">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id animi voluptas dolor esse eius
+                    similique vero impedit cum dolorum?
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col eco__modal">
+            <div class="eco__img">
+              <img src="{% static 'assets/img/colecciones/ECO/V2.jpg' %}" width="100" alt="">
+              <!-- Button trigger modal -->
+              <button type="button" class="eco__btn ver" data-bs-toggle="modal"
+                data-bs-target="#exampleModal3">
+                Ver
+              </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content rounded-0">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <img src="{% static 'assets/img/colecciones/ECO/V2.jpg' %}" width="100" alt="">
+                  </div>
+                  <div class="modal-footer">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id animi voluptas dolor esse eius
+                    similique vero impedit cum dolorum?
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

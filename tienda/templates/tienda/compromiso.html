@@ -2,259 +2,53 @@
 {% load static %}
 {% block content %}
 <main id="main">
-    <section class="compromiso">
+    <section class="compromisos">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-			<ol class="carousel-indicators">
-			  <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-			  <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-			  <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-			</ol>
-			<div class="carousel-inner">
-			  <div class="carousel-item active">
-				<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/ropa.jpg' %}" alt=""></img>
-		
-				<div class="container">
-				  <div class="carousel-caption text-start">
-					<h1>Amautas.</h1>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#amautas" role="button">Ver más</a></p>
-				  </div>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/ambiente.jpg' %}" alt=""></img>
-		
-				<div class="container">
-				  <div class="carousel-caption">
-					<h1>Ambiente.</h1>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#ambiente" role="button">Ver más</a></p>
-				  </div>
-				</div>
-			  </div>
-			  <div class="carousel-item">
-				<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/kid.jpg' %}" alt=""></img>
-		
-				<div class="container">
-				  <div class="carousel-caption text-end">
-					<h1>Niños.</h1>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#" role="button">Ver más</a></p>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
-			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
-			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			  <span class="visually-hidden">Next</span>
-			</a>
-		</div>
-        <div class="container">
-            <div class="row amautas mb-5 mt-5">
-                <div class="col-md-6 p-0 compromiso__background">
-                    <div class="background__info">
-                        <div class="info">
-                            <h1>Los Amautas</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
+            <ol class="carousel-indicators">
+                <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/compromiso/Manos/m1.jpg' %}"
+                        alt=""></img>
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>Manos.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#amautas" role="button">Ver
+                                    más</a></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 p-0 compromiso__img">
-                    <div class="background__img">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                        <div class="info">
-                            <h1>Amautas</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
+                <div class="carousel-item">
+                    <img class="bd-placeholder-img" width="100%"
+                        src="{% static 'assets/img/compromiso/Rostros/Andrea/foto00465.jpg' %}" alt=""></img>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Rostros.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#ambiente" role="button">Ver
+                                    más</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row ambiente mb-5 mt-5">
-                <div class="col-md-6 p-0 compromiso__img">
-                    <div class="background__img">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                        <div class="info">
-                            <h1>Ambiente</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 compromiso__background">
-                    <div class="background__info">
-                        <div class="info">
-                            <h1>Nuestro compromiso con el ambiente</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row manos mb-5 mt-5">
-                <div class="col-md-6 p-0 compromiso__background">
-                    <div class="background__info">
-                        <div class="info">
-                            <h1>Nuestro compromiso con el ambiente</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0 compromiso__img">
-                    <div class="background__img">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                        <div class="info">
-                            <h1>Ambiente</h1>
-                            <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, vel!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rostros ">
-                <div class="rostros__titulo">
-                    <h1>Los Rostros</h1>
-                </div>
-                <div class="rostros__grid">
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>
-                    </div>
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>
-                    </div>
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>
-                    </div>
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>       
-                    </div>
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>       
-                    </div>
-                    <div class="grid__item">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                        <div class="rostro__info">
-                            <h2>Lorem, ipsum dolor.</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ex?</p>
-                        </div>       
-                    </div> 
-                </div>               
-            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
         </div>
-        <!-- <h1 class="text-center mt-5 mb-5">Nuestro Compromiso</h1>
-        <div class="container amautas mt-5 mb-5" id="amautas">            
-            <div class="row">
-                <div class="col-md-6 p-5">
-                    <h2>Amautas</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat provident numquam voluptatem! Neque cumque possimus illum et eum aut.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, nemo?</p>
-                </div>
-                <div class="col-md-6 pe-0">
-                    <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                </div>
-            </div>
+        <div class="compromiso">
+            {% include "tienda/compromiso/rostros.html" %}
         </div>
-        <div class="container mt-5 mb-5">            
-            <div class="amautas__galeria">
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Nosotros</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Nuestro Futuro</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ropa.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Ellos</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-            </div>
-        </div>  
-        <div class="container ambiente mt-5 mb-5" id="ambiente">            
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                </div>
-                <div class="col-md-6 p-5">
-                    <h2>Ambiente</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque fugiat provident numquam voluptatem! Neque cumque possimus illum et eum aut.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, nemo?</p>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-5 mb-5">            
-            <div class="amautas__galeria">
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Nosotros</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Nuestro Futuro</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item__img">
-                        <img src="{% static 'assets/img/ambiente.jpg' %}" width="100" alt="">
-                    </div>
-                    <div class="item__info">
-                        <h5>Ellos</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt blanditiis dolorum magni tenetur, reiciendis voluptas et eum dicta iusto nulla.</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    
     </section>
 </main>
 {% endblock content %}

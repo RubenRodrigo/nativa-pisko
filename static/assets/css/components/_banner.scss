@@ -4,12 +4,86 @@
     padding: 30px;
 }
 .conocenos__box{
-    margin-bottom: 50px;
+    margin: 50px 0;
+    background-color: $color-terciario;
     & .row {
         width: 100%;
     }
+    .box__img{  
+        position: relative;        
+        h1{
+            font-size: 6rem;
+            font-family: 'Times New Roman', Times, serif;
+            color: $color-terciario;
+            position: absolute;
+            top: 40%;
+            right: 12%;
+            letter-spacing: 2px;
+        }
+        .img--secundaria{
+            position: absolute;
+            width: 500px;
+            height: 400px;
+            top: 50%;
+            right: 10%;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
     .box__info{
-        font-size: 1.4rem;
-        padding: 30px;        
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;        
+        padding: 30px;
+        h1{
+            font-size: 4rem;
+            letter-spacing: 15px;
+            margin-bottom: 50px;
+        }   
+        p{
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }     
+    }
+}
+.inspiracion{
+    height: 100vh;
+    background: url("../img/inspiracion/JMM_1166.JPG") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__info{
+        color: $color-claro;
+        width: 60%;
+        .title{
+            margin-bottom: 40px;
+        }
+    }
+}
+.inspiracion, .materiales{
+    margin: 50px auto;
+}
+.materiales{    
+    background: $color-terciario;
+    padding: 0;
+    .row{
+        width: 100%;
+        margin: 0;
+    }
+    img{
+        opacity: 1;
+        height: 100%;
+    }
+    &__info{
+        padding: 30px;
+    }
+    .title{
+        font-size: 3rem;
     }
 }

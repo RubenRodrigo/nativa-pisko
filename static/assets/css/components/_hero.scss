@@ -16,7 +16,7 @@
     }
     &__info{
         position: absolute;
-        bottom: 5%;
+        bottom: 15%;
         left: 0px;
         width: 100%;
         text-align: center;
@@ -30,28 +30,17 @@
         }
         p{
             font-size: 2rem;
-        }        
-    }
-}
-.coleccion{
-    & .container{
-        max-width: 1350px;
-    }
-    &__info .container{
-        margin: 7rem auto;        
-        h3{
-            font-size: 6rem;
-            letter-spacing: 10px;
-            text-transform: uppercase;
         }
-        p{
-            font-size: 1rem;  
-        }        
-    }
-    &__img{
-        height: 300px;
-        img{
-            object-fit: cover;
+        .btn-ver{
+            border: 2px solid $color-primario;
+            padding: 10px;
+            font-size: 120%;
+            background: $color-primario;
+            color: $color-claro;
+            &:hover{
+                background: $color-claro;
+                color: $color-primario;
+            }
         }
     }
 }

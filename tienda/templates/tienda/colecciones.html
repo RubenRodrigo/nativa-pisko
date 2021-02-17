@@ -4,137 +4,93 @@
 <main id="main">
 	<section class="colecciones">
 		<div class="hero">
-			<div class="hero__img"
-				style="background: url({% static 'assets/img/dama.jpg' %}) no-repeat center; background-size: cover;">
-				<div class="hero__border"></div>
-			</div>
-			<div class="hero__info">
-				<h1>Eco</h1>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error, nemo.</p>
-			</div>
-		</div>
-		<div class="coleccion">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5 coleccion__info">
-						<div class="container">
-							<h3>Eco</h3>
-							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae quos ratione adipisci excepturi
-								quo, magnam reiciendis ut fugiat nostrum numquam non hic accusantium sunt facere molestiae, delectus
-								esse in provident vero optio consequuntur laboriosam ad minus. Quo, nulla ipsum modi sapiente
-								accusantium et voluptate necessitatibus expedita debitis, beatae, vero eius.</p>
+			<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+					<li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+					<li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+					<li data-bs-target="#myCarousel" data-bs-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="hero__img"
+							style="background: url({% static 'assets/img/colecciones/ECO/eco1.jpg' %}) no-repeat center; background-size: cover;">
+							<div class="hero__border"></div>
 						</div>
-
+						<div class="hero__info">
+							<div class="container">
+								<h1>Eco</h1>
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button class="btn-ver">Ver más</button>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-7 coleccion__imagenes">
-						<div class="row pb-5">
-							<div class="col-4 coleccion__modal">
-								<div class="coleccion__img">
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-									<!-- Button trigger modal -->
-									<button type="button" class="coleccion__btn ver" data-bs-toggle="modal"
-										data-bs-target="#exampleModal1">
-										Ver
-									</button>
-								</div>
-
-								<!-- Modal -->
-								<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
-									aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content rounded-0">
-											<div class="modal-header">												
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-											<div class="modal-body">
-												<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-											</div>
-											<div class="modal-footer">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id animi voluptas dolor esse eius similique vero impedit cum dolorum?
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<div class="col-4 coleccion__modal">
-								<div class="coleccion__img">
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-									<!-- Button trigger modal -->
-									<button type="button" class="coleccion__btn ver" data-bs-toggle="modal"
-										data-bs-target="#exampleModal2">
-										Ver
-									</button>
-								</div>
-
-								<!-- Modal -->
-								<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-									aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content rounded-0">
-											<div class="modal-header">												
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-											<div class="modal-body">
-												<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-											</div>
-											<div class="modal-footer">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id animi voluptas dolor esse eius similique vero impedit cum dolorum?
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-4 coleccion__modal">
-								<div class="coleccion__img">
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-									<!-- Button trigger modal -->
-									<button type="button" class="coleccion__btn ver" data-bs-toggle="modal"
-										data-bs-target="#exampleModal3">
-										Ver
-									</button>
-								</div>
-
-								<!-- Modal -->
-								<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
-									aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content rounded-0">
-											<div class="modal-header">												
-												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-											<div class="modal-body">
-												<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-											</div>
-											<div class="modal-footer">
-												Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id animi voluptas dolor esse eius similique vero impedit cum dolorum?
-											</div>
-										</div>
-									</div>
+					<div class="carousel-item">
+						<div class="hero__img"
+							style="background: url({% static 'assets/img/colecciones/SOFT/soft.jpg' %}) no-repeat center; background-size: cover;">
+							<div class="hero__border"></div>
+						</div>
+						<div class="hero__info">
+							<div class="container">
+								<h1>SOFT</h1>
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button class="btn-ver">Ver más</button>
 								</div>
 							</div>
 						</div>
-						<!-- <div class="row pb-5">
-							<div class="col-4 coleccion__img">
-								<div>
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+					</div>
+					<div class="carousel-item">
+						<div class="hero__img"
+							style="background: url({% static 'assets/img/colecciones/BORDADOS/a2.jpg' %}) no-repeat center; background-size: cover;">
+							<div class="hero__border"></div>
+						</div>
+						<div class="hero__info">
+							<div class="container">
+								<h1>BORDADOS</h1>
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button class="btn-ver">Ver más</button>
 								</div>
 							</div>
-							<div class="col-4 coleccion__img">
-								<div>
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="hero__img"
+							style="background: url({% static 'assets/img/colecciones/GUAGUAS/V5.jpg' %}) no-repeat center; background-size: cover;">
+							<div class="hero__border"></div>
+						</div>
+						<div class="hero__info">
+							<div class="container">
+								<h1>GUAGUAS</h1>
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button class="btn-ver">Ver más</button>
 								</div>
 							</div>
-							<div class="col-4 coleccion__img">
-								<div>
-									<img src="{% static 'assets/img/caballero.jpg' %}" width="100" alt="">
-								</div>
-							</div>
-						</div> -->
+						</div>
 					</div>
 				</div>
+				<a class="carousel-control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#myCarousel" role="button" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</a>
 			</div>
 
+		</div>
+		<div class="coleccion">
+			{% include "tienda/colecciones/eco.html" %}
+		</div>
+		<div class="coleccion">
+			{% include "tienda/colecciones/soft.html" %}
+		</div>
+		<div class="coleccion">
+			{% include "tienda/colecciones/bordados.html" %}
+		</div>
+		<div class="coleccion">
+			{% include "tienda/colecciones/guagas.html" %}
 		</div>
 	</section>
 </main>

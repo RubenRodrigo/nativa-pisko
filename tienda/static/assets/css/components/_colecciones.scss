@@ -1,32 +1,102 @@
-.coleccion{
-  &__img{
+.eco {
+  &__img {
     position: relative;
     cursor: pointer;
     transition: ease-in-out 0.5s;
-    &:hover{
-      img{
+    &:hover {
+      img {
         opacity: 0.5;
       }
-      .coleccion__btn.ver{
+      .eco__btn.ver {
         opacity: 1;
-        &:hover{
+        &:hover {
           background: $color-claro;
           color: $color-primario;
         }
       }
-      background: $color-secundario;      
+      background: $color-secundario;
     }
   }
-  &__btn.ver{
+  &__btn.ver {
     color: $color-claro;
     background: none;
     border: 1px solid $color-primario;
     opacity: 0;
     transition: ease-in-out 0.3s;
   }
-}
+  & .container {
+    max-width: 1350px;
+  }
+  &__info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+      h3 {
+        font-size: 6rem;
+        letter-spacing: 10px;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
 
+  &__img {
+    height: 300px;
+    img {
+      object-fit: cover;
+    }
+  }
+}
 // MODAL
-.modal{
-  background-color: rgba($color: #ffffff, $alpha: 0.7);  
+.modal {
+  background-color: rgba($color: #ffffff, $alpha: 0.7);
+}
+.bordados{
+  position: relative;
+  &__grid{    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    img{
+      object-fit: cover;
+      filter: blur(5px);      
+    }
+    .grid-item{
+      position: relative;
+      &:hover{
+        img{
+          filter: blur(0px);
+        }
+        .bordados__btn.ver {
+          opacity: 1;
+          &:hover {
+            background: $color-primario;
+            color: $color-claro;
+          }
+        }
+      }
+    }
+  }
+  &__btn.ver {
+    color: $color-primario;    
+    border: 1px solid $color-primario;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+  }
+  &__info{
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border: 2px solid $color-terciario;    
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */    
+    .info{
+      text-align: center;
+      color: $color-terciario;
+    }
+  }
 }
