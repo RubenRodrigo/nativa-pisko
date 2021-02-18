@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   padding-top: 6rem;
   font-family: 'Roboto', sans-serif !important;
@@ -12,6 +11,13 @@ img {
 h1.title {
   font-size: 4rem;
   letter-spacing: 10px;
+}
+
+h1.title-page {
+  font-size: 5rem;
+  letter-spacing: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }
 
 .precio--fake {
@@ -37,6 +43,10 @@ h1.title {
           transform: translate(-50%, -50%);
 }
 
+.navbar {
+  background-color: #fff;
+}
+
 .navbar .logo {
   max-height: 100px;
   max-width: 100px;
@@ -52,7 +62,6 @@ h1.title {
 
 .navbar .nav-item .nav-link {
   font-size: 13px;
-  font-family: 'Rubik', sans-serif;
   color: #3b3b3b !important;
 }
 
@@ -184,7 +193,7 @@ h1.title {
   transition: ease-in-out 0.3s;
 }
 
-.grid .grid_item--mujer {
+.grid .grid_item--1 {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1/3;
@@ -193,7 +202,7 @@ h1.title {
   grid-column: 1/3;
 }
 
-.grid .grid_item--hombre {
+.grid .grid_item--2 {
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3/5;
@@ -202,7 +211,7 @@ h1.title {
   grid-row: 1/2;
 }
 
-.grid .grid_item--niño {
+.grid .grid_item--3 {
   -ms-grid-column: 3;
   -ms-grid-column-span: 2;
   grid-column: 3/5;
@@ -309,6 +318,10 @@ h1.title {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid--tienda * {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .grid--tienda h6 {
@@ -553,6 +566,62 @@ footer {
   background-color: #f1eddc;
 }
 
+.compromiso .rostro.andrea {
+  background-color: #fff;
+}
+
+.compromiso .rostro.andrea .andrea__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.compromiso .rostro.andrea .andrea__grid img {
+  -webkit-box-shadow: 0 0 8px 5px rgba(161, 161, 161, 0.849);
+          box-shadow: 0 0 8px 5px rgba(161, 161, 161, 0.849);
+}
+
+.compromiso .rostro.andrea .andrea__grid img:hover {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.compromiso .rostro.andrea .andrea__grid .grid__item5 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2/4;
+}
+
+.compromiso .rostro.angel {
+  background-color: #fff;
+}
+
+.compromiso .rostro.angel .angel__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+.compromiso .rostro.angel .angel__grid img {
+  -webkit-box-shadow: 0 0 8px 5px rgba(161, 161, 161, 0.849);
+          box-shadow: 0 0 8px 5px rgba(161, 161, 161, 0.849);
+}
+
+.compromiso .rostro.angel .angel__grid img:hover {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.compromiso .rostro.angel .angel__grid .grid__item4 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+}
+
 .compromiso .rostro-walter {
   background-color: #afa797;
   color: #f1eddc;
@@ -589,6 +658,13 @@ footer {
   top: 40%;
   right: 12%;
   letter-spacing: 2px;
+}
+
+.conocenos__box .box__img .img--principal {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 .conocenos__box .box__img .img--secundaria {
@@ -634,8 +710,11 @@ footer {
 
 .inspiracion {
   height: 100vh;
-  background: url("../img/inspiracion/JMM_1166.JPG") center center no-repeat;
+  background: url("../img/inspiracion/JMM_1140.JPG") center center no-repeat;
   background-size: cover;
+}
+
+.inspiracion__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -645,15 +724,18 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.inspiracion__info {
   color: white;
-  width: 60%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .inspiracion__info .title {
   margin-bottom: 40px;
+}
+
+.inspiracion__info .info {
+  width: 50%;
 }
 
 .inspiracion, .materiales {

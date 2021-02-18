@@ -6,11 +6,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Monasterio</title>
+  <link href="{% static 'assets/img/monasterioIcon.jpeg' %}" rel="icon">
+
   <!-- ======= Google Fonts ======= -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"> 
 
   <!-- ======= Bootstrap 5 CSS ======= -->
   <link href="{% static 'assets/vendor/css/bootstrap.min.css' %}" rel="stylesheet">	
@@ -25,10 +27,10 @@
     <!-- ======= Header ======= -->
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light border-bottom">        
+        <nav class="navbar navbar-expand-md fixed-top border-bottom">        
           <div class="container-fluid">
 						<a class="navbar-brand" href="/">
-              <img class="logo" src="{% static 'assets/img/logo.png' %}" alt="">
+              <img class="logo" src="{% static 'assets/img/monasterio.jpeg' %}" alt="">
 						</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
@@ -46,7 +48,7 @@
                     <ul class="categorias-lista">
                       <li><h6><a href="{% url 'tienda' %}">Todo</a></h6></li>
                       <li>
-                        <h6><a href="">Para Ellos</a></h6>
+                        <h6><a href="{% url 'tienda_catalogo' 'Para Ellos' %}">Para Ellos</a></h6>
                         <ul>
                           <li><a href="">Sweater</a></li>
                           <li><a href="">Sweater</a></li>
@@ -55,7 +57,7 @@
                         </ul>
                       </li>
                       <li>
-                        <h6><a href="">Para Ellas</a></h6>
+                        <h6><a href="{% url 'tienda_catalogo' 'Para Ellas' %}">Para Ellas</a></h6>
                         <ul>
                           <li><a href="">Sweater</a></li>
                           <li><a href="">Sweater</a></li>
@@ -93,27 +95,25 @@
                     </a>
                   </h6>
                 </div>
+                {% for catalogo in catalogos %}
                 <div>
                   <h6>
-                    <a href="#">
-                      Para Ellos
+                    <a href="{% url 'tienda_catalogo' catalogo.nombre %}">
+                      {{catalogo.nombre}}
                     </a>
                   </h6>
                   <ul>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
+                    {% for categoria in catalogo.categorias %}
+                      <li>
+                        <a href="{% url 'tienda_categoria' catalogo.nombre categoria.nombre %}#tienda">{{categoria.nombre}}</a>
+                      </li>
+                    {% endfor %}
                   </ul>
                 </div>
-                <div>
+                {% endfor %}
+                <!-- <div>
                   <h6>
-                    <a href="#">
+                    <a href="{% url 'tienda_catalogo' 'Para Ellas' %}">
                       Para Ellas
                     </a>
                   </h6>
@@ -128,7 +128,7 @@
                       <a href="#">Sweater</a>
                     </li>
                   </ul>
-                </div>
+                </div> -->
               </div>
             </div>            
           </div>          

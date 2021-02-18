@@ -36,8 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'tienda.apps.TiendaConfig'
+    'django.contrib.staticfiles',    
+    'nested_admin',
+    'tienda.apps.TiendaConfig',
 ]
 
 MIDDLEWARE = [

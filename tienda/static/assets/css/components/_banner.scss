@@ -20,6 +20,10 @@
             right: 12%;
             letter-spacing: 2px;
         }
+        .img--principal{
+            object-fit: cover;
+            filter: blur(5px);   
+        }
         .img--secundaria{
             position: absolute;
             width: 500px;
@@ -29,8 +33,8 @@
         }
         img{
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 100%;            
+            object-fit: cover;            
         }
     }
     .box__info{
@@ -53,16 +57,21 @@
 }
 .inspiracion{
     height: 100vh;
-    background: url("../img/inspiracion/JMM_1166.JPG") center center no-repeat;
-    background-size: cover;
-    display: flex;
+    background: url("../img/inspiracion/JMM_1140.JPG") center center no-repeat;
+    background-size: cover;    
+    &__info{
+        display: flex;
     align-items: center;
     justify-content: center;
-    &__info{
         color: $color-claro;
-        width: 60%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: .3);        
         .title{
             margin-bottom: 40px;
+        }
+        .info{
+            width: 50%;
         }
     }
 }

@@ -31,6 +31,36 @@
   .rostro{
     background-color: $color-terciario;
   }
+  @mixin images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    img{
+      box-shadow: 0 0 8px 5px rgba(161, 161, 161, 0.849);
+      &:hover {
+        filter: blur(5px);
+      }
+    }
+  }
+  .rostro.andrea{
+    background-color: #fff;
+    .andrea__grid{
+      @include images();
+      .grid__item5{
+        grid-column: 2/4;        
+      }
+
+    }
+  }
+  .rostro.angel{
+    background-color: #fff;
+    .angel__grid{
+      @include images();
+      .grid__item4{
+        grid-column: 1/3;
+      }
+    }
+  }
   .rostro-walter{
     background-color: rgb(175, 167, 151);
     color: $color-terciario;
@@ -41,79 +71,4 @@
     }
   }
 
-  // .background__info{
-  //     height: 100%;
-  //     display: flex;
-  //     flex-direction: column;
-  //     align-items: center;
-  //     justify-content: center;
-  //     color: $color-claro;
-  //     .info{
-  //         h1{
-  //             font-size: 3.5rem;
-  //         }
-  //     }
-  // }
-  // &__img{
-  //     .background__img{
-  //         position: relative;
-  //         height: 90vh;
-  //         img{
-  //             object-fit: cover;
-  //         }
-  //         .info{
-  //             position: absolute;
-  //             top: 50%;
-  //             left: 50%;
-  //             transform: translate(-50%, -50%);
-  //             color: $color-claro;
-  //             border: 3px solid $color-terciario;
-  //             h1{
-  //                 font-size: 7rem;
-  //                 letter-spacing: 7px;
-  //             }
-  //         }
-  //     }
-  // }
-  // .rostros{
-  //     background-color: $color-terciario;
-  //     .rostros__titulo{
-  //         h1{
-  //             font-family: 'Great Vibes', cursive;
-  //             text-align: center;
-  //             padding: 20px;
-  //             color: $color-primario;
-  //             font-size: 7rem;
-  //         }
-  //     }
-  //     .rostros__grid{
-  //         padding: 25px;
-  //         display: grid;
-  //         grid-template-columns: 1fr 1fr 1fr;
-  //         .grid__item{
-  //             position: relative;
-  //             .rostro__info{
-  //                 text-align: center;
-  //                 position: absolute;
-  //                 top: 0px;
-  //                 left: 0px;
-  //                 width: 100%;
-  //                 height: 0px;
-  //                 color: $color-claro;
-  //                 overflow: hidden;
-  //                 transition: all 0.5s ease-in;
-  //                 h2{
-  //                     font-family: 'Great Vibes', cursive;
-  //                     font-size: 3.5rem;
-  //                 }
-  //             }
-  //             &:hover{
-  //                 .rostro__info{
-  //                     background: rgba(0, 0, 0, 0.5);
-  //                     height: 100%;
-  //                 }
-  //             }
-  //         }
-  //     }
-  // }
 }

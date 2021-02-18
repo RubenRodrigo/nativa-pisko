@@ -1,4 +1,5 @@
 .navbar{
+    background-color: #fff;
     .logo{
         max-height: 100px;
         max-width: 100px;        
@@ -9,8 +10,7 @@
     .nav-item{
         text-transform: uppercase;
         .nav-link{
-            font-size: 13px;
-            font-family: 'Rubik', sans-serif;
+            font-size: 13px;            
             color: $color-primario !important;
         }    
         .nav-link:hover{
