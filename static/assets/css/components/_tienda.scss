@@ -3,6 +3,9 @@
         margin-bottom: 15px;
     }
     &__direccion{
+        a{
+            text-decoration: none;
+        }
         .active{
             border-bottom: 1px solid $color-primario;
             font-weight: bold;
@@ -23,13 +26,19 @@
 }
 .paginacion{
     .pagination{
-        .page-item a{
-            border-radius: 0px;
-            border: 1px solid $color-primario;
-            color: $color-primario;
-            &:hover{
-                border: 2px solid black;
+        .page-item{
+            .page-link {
+                border-radius: 0px;
+                border: 1px solid $color-primario;
+                color: $color-primario;
+                &:hover{
+                    border: 2px solid black;
+                }
             }
-        }
+            .first, .last, .active{
+                background: $color-primario;
+                color: $color-claro;
+            }
+        }                    
     }
 }

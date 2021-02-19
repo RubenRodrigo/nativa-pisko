@@ -1,14 +1,13 @@
-.proyectos{    
-    img{
-        max-height: 350px;
-        border-radius: 0px;
-        object-fit: cover;
-    }
-    a.proyecto-ver{
-        color: $color-secundario;
-        cursor: pointer;
-        &:hover{
-            font-weight: bold;
+.proyectos{
+    .proyecto{
+        .card-body{
+            height: 350px;
+            overflow-y: auto;
         }
     }
+    img{
+        height: 250px;
+        border-radius: 0px;
+        object-fit: cover;
+    }    
 }

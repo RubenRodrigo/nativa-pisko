@@ -3,6 +3,16 @@
     color: $color-claro;
     padding: 30px;
 }
+.conocenos__box.pri{
+    img{
+        height: 600px;
+    }
+}
+.conocenos__box.sec{
+    img{        
+        height: 600px;
+    }
+}
 .conocenos__box{
     margin: 50px 0;
     background-color: $color-terciario;
@@ -21,20 +31,22 @@
             letter-spacing: 2px;
         }
         .img--principal{
-            object-fit: cover;
-            filter: blur(5px);   
+            display: block;
         }
-        .img--secundaria{
-            position: absolute;
-            width: 500px;
-            height: 400px;
-            top: 50%;
-            right: 10%;
+        .img--secundaria{            
+            display: none;
         }
         img{
             width: 100%;
-            height: 100%;            
             object-fit: cover;            
+        }
+        &:hover{
+            .img--principal{
+                display: none;
+            }
+            .img--secundaria{            
+                display: block;
+            }
         }
     }
     .box__info{
