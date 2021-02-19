@@ -21,7 +21,7 @@
 							<div class="container">
 								<h1>Eco</h1>
 								<div class="d-grid gap-2 col-6 mx-auto">
-									<button class="btn-ver">Ver más</button>
+									<a class="btn-ver" href="#eco">Ver más</a>
 								</div>
 							</div>
 						</div>
@@ -35,7 +35,7 @@
 							<div class="container">
 								<h1>SOFT</h1>
 								<div class="d-grid gap-2 col-6 mx-auto">
-									<button class="btn-ver">Ver más</button>
+									<a class="btn-ver" href="#soft">Ver más</a>
 								</div>
 							</div>
 						</div>
@@ -49,7 +49,7 @@
 							<div class="container">
 								<h1>BORDADOS</h1>
 								<div class="d-grid gap-2 col-6 mx-auto">
-									<button class="btn-ver">Ver más</button>
+									<a class="btn-ver" href="#bordados">Ver más</a>
 								</div>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 							<div class="container">
 								<h1>GUAGUAS</h1>
 								<div class="d-grid gap-2 col-6 mx-auto">
-									<button class="btn-ver">Ver más</button>
+									<a class="btn-ver" href="#guagas">Ver más</a>
 								</div>
 							</div>
 						</div>
@@ -80,16 +80,16 @@
 			</div>
 
 		</div>
-		<div class="coleccion">
+		<div class="coleccion" id="eco">
 			{% include "tienda/colecciones/eco.html" %}
 		</div>
-		<div class="coleccion">
+		<div class="coleccion" id="soft">
 			{% include "tienda/colecciones/soft.html" %}
 		</div>
-		<div class="coleccion">
+		<div class="coleccion" id="bordados">
 			{% include "tienda/colecciones/bordados.html" %}
 		</div>
-		<div class="coleccion">
+		<div class="coleccion" id="guagas">
 			{% include "tienda/colecciones/guagas.html" %}
 		</div>
 	</section>

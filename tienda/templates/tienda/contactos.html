@@ -4,16 +4,52 @@
 <main id="main">
     <section>
         <div class="container">
+            <!-- <h3 class="title text-center">CONTACTANOS</h3> -->
+            <form action="">
+                <div class="row my-2 justify-content-md-center">
+                    <div class="col-sm-5 mb-4">
+                        <label for="lastName" class="form-label">Nombres y Apellidos</label>
+                        <input type="text" class="form-control rounded-0" id="lastName" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            Este campo debe ser valido
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2 justify-content-md-center">
+                    <div class="col-sm-5 mb-4">
+                        <label for="email" class="form-label">Correo Electronico</label>
+                        <input type="email" class="form-control rounded-0" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Este campo debe ser valido
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2 justify-content-md-center">
+                    <div class="col-sm-5 mb-4">
+                        <label for="email" class="form-label">Mensaje</label>
+                        <textarea name="mensaje" class="form-control  rounded-0" id="" cols="30" rows="5"></textarea>
+                        <div class="invalid-feedback">
+                            Este campo debe ser valido
+                        </div>
+                    </div>
+                <div class="row my-2 justify-content-md-center">
+                    <div class="col-md-5 mb-4">
+                        <button class="w-100 btn btn-outline-dark btn-lg rounded-0" type="submit">Enviar</button>
+                    </div> 
+                </div>
+            </form>
+        </div>
+        <div class="container mt-4 mb-4">
             <div class="grid--contactos">
                 <div class="grid_item">
                     <div class="row mb-4">
                         <i class="bi bi-envelope"></i>
                     </div>
                     <div class="row">
-                        <h3>Email</h3>
+                        <h5>Email</h5>
                     </div>
                     <div class="row">
-                        <h5 class="text-muted">tucorreoelectronico@gmail.com</h5>
+                        <h6 class="text-muted">tucorreoelectronico@gmail.com</h6>
                     </div>
                 </div>
                 <div class="grid_item">
@@ -21,43 +57,13 @@
                         <i class="fa-4x bi bi-telephone-inbound"></i>                        
                     </div>
                     <div class="row">
-                        <h3>Telefono / Whatsapp</h3>
+                        <h5>Telefono / Whatsapp</h5>
                     </div>
                     <div class="row">
-                        <h5 class="text-muted">+54 956 151 981</h5>
+                        <h6 class="text-muted">+54 956 151 981</h6>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">            
-            <form action="">
-                <div class="row my-4">
-                    <div class="col-sm-5 offset-md-4 mb-4">
-                        <label for="lastName" class="form-label">Nombres y Apellidos</label>
-                        <input type="text" class="form-control rounded-0" id="lastName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Este campo debe ser valido
-                        </div>
-                    </div>
-                    <div class="col-sm-5 offset-md-4 mb-4">
-                        <label for="email" class="form-label">Correo Electronico</label>
-                        <input type="email" class="form-control rounded-0" id="email" placeholder="you@example.com">
-                        <div class="invalid-feedback">
-                            Este campo debe ser valido
-                        </div>
-                    </div>
-                    <div class="col-sm-5 offset-md-4 mb-4">
-                        <label for="email" class="form-label">Mensaje</label>
-                        <textarea name="mensaje" class="form-control  rounded-0" id="" cols="30" rows="5"></textarea>
-                        <div class="invalid-feedback">
-                            Este campo debe ser valido
-                        </div>
-                    </div>
-                    <div class="col-md-5 offset-md-4 mb-4">
-                        <button class="w-100 btn btn-outline-dark btn-lg rounded-0" type="submit">Enviar</button>
-                    </div> 
-                </div>
-            </form>
         </div>        
     </section>
 </main>

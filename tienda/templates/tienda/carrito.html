@@ -1,0 +1,89 @@
+{% extends 'tienda/main.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+	<section class="carrito">
+		<div class="container">
+			<div class="row" style="padding-top: 60px;">
+				<h2><strong>Carrito De Compras</strong></h2>
+			</div>
+			<div class="row carrito--tabla">
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col">Productos</th>
+							<th scope="col">Precio</th>
+							<th scope="col">Color</th>
+							<th scope="col">Talla</th>
+							<th scope="col">Cantidad</th>
+							<th scope="col">Total</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody class="producto--tabla">
+						{% for item in items %}							
+							<tr>
+								<th scope="row">
+									<div >
+										{% with item.producto.productoimagen_set.all|first as imagen %}									
+										<a class="producto__imagen" href="/producto/{{item.producto.id}}"><img src="{{imagen.imagenURL}}" width="100" alt=""></a><a class="producto__nombre" href="/producto/{{item.producto.id}}"><h4>{{item.producto}}</h4></a>
+										{% endwith %}
+									</div>
+								</th>
+								<td class="producto__precio">S/{{ item.producto.precio}}</td>
+								<td class="producto_color" data-color="{{item.producto_color.color.id}}">{{item.producto_color}}</td>
+								<td class="producto__talla" data-talla="{{item.producto_talla.talla.id}}">{{item.producto_talla}}</td>
+								<td>
+									<div class="producto__cantidad">
+										<button 
+											class="update-cart"
+											data-producto={{item.producto.id}}
+											data-talla={{item.producto_talla.talla.id}}
+											data-color={{item.producto_color.color.id}}
+											data-action="remove">
+											<h3>-</h3>
+										</button>
+										<h6 class="producto__cantidad-item">{{ item.cantidad }}</h6>
+										<button 
+											class="update-cart"
+											data-producto={{item.producto.id}}
+											data-talla={{item.producto_talla.talla.id}}
+											data-color={{item.producto_color.color.id}}
+											data-action="add">
+											<h3>+</h3>
+										</button>
+									</div>
+								</td>
+								<td class="producto__total">S/ {{item.get_total}}</td>
+								<td>
+									<button class="producto__delete" data-ordenitem={{item.id}}><h4>X</h4></button>
+								</td>
+							</tr>							
+						{% endfor %}
+						<tr>
+							<th scope="row">
+								<h6>Subtotal</h6>
+							</th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td id="carrito__total">S/ {{orden.get_cart_total}}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<th scope="row"></th>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td colspan="3">
+								<button class="confirmar">Confirmar Pago</button>
+							</td>							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<script src="{% static 'assets/js/carrito.js' %}"></script>
+</main>
+{% endblock content %}

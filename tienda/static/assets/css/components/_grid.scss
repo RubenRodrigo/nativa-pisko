@@ -45,7 +45,7 @@
     justify-items: center;
     text-align: center;
     i{        
-        font-size: 30px;
+        font-size: 20px;
         color: $color-secundario;
     }
 }
@@ -101,7 +101,7 @@
     justify-content: space-around;
     justify-items: center;
     display: grid;    
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     *{
         font-family: 'Montserrat', sans-serif;
     }

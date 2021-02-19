@@ -23,7 +23,7 @@ class Categoria(models.Model):
     catalogo = models.ForeignKey(Catalogo, on_delete=models.SET_NULL, null=True, blank=True)
     nombre = models.CharField(max_length=200, null=True)
     def __str__(self):
-        return self.nombre + " - " + self.catalogo.nombre
+        return self.catalogo.nombre +" + "+ self.nombre
 
 class Producto(models.Model):
     catalogo = models.ForeignKey(Catalogo, on_delete=models.SET_NULL, null=True, blank=True)

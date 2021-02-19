@@ -1,157 +1,214 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Monasterio</title>
-  <link href="{% static 'assets/img/monasterioIcon.jpeg' %}" rel="icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monasterio</title>
+  <link href="{% static 'assets/img/Isotipo.png' %}" rel="icon">
 
   <!-- ======= Google Fonts ======= -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
 
   <!-- ======= Bootstrap 5 CSS ======= -->
-  <link href="{% static 'assets/vendor/css/bootstrap.min.css' %}" rel="stylesheet">	
+  <link href="{% static 'assets/vendor/css/bootstrap.min.css' %}" rel="stylesheet">
 
   <!-- ======= Bootstrap Icons ======= -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- ======= Custom CSSS ======= -->
   <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet">
+  <script type="text/javascript">
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    let device = getCookie('device')
+
+    if (device == null || device == undefined) {
+      device = uuidv4()
+    }
+
+    document.cookie = 'device' + device + ';domain=;path=/'
+    var csrftoken = getCookie('csrftoken')
+    var user = '{{request.user}}'
+  </script>
 </head>
+
 <body>
-    <!-- ======= Header ======= -->
+  <!-- ======= Header ======= -->
 
-    <header>
-        <nav class="navbar navbar-expand-md fixed-top border-bottom">        
-          <div class="container-fluid">
-						<a class="navbar-brand" href="/">
-              <img class="logo" src="{% static 'assets/img/monasterio.jpeg' %}" alt="">
-						</a>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav m-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="/">Conócenos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button">
-                    Catalogo
-                  </a>
-                  <div class="categorias-movil" id="categorias-movil">                    
-                    <ul class="categorias-lista">
-                      <li><h6><a href="{% url 'tienda' %}">Todo</a></h6></li>
-                      <li>
-                        <h6><a href="{% url 'tienda_catalogo' 'Para Ellos' %}">Para Ellos</a></h6>
-                        <ul>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h6><a href="{% url 'tienda_catalogo' 'Para Ellas' %}">Para Ellas</a></h6>
-                        <ul>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                          <li><a href="">Sweater</a></li>
-                        </ul>
-                      </li>
-                    </ul>                              
-                  </div>
-                </li> 
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'colecciones' %}">Colecciones</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'servicio' %}">Servicio al cliente</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'compromiso' %}">Nuestro Compromiso</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contactos' %}">Contáctanos</a>
-                </li>
-              </ul>
-							<i class="bi bi-person-fill pe-3"></i>
-							<i class="bi bi-cart-fill"></i>
-            </div>
-          </div>
-          <div class="categorias" id="categorias">
-            <div class="container">
-              <div class="grid--tienda">
-                <div>
-                  <h6>
-                    <a href="{% url 'tienda' %}">
-                      Todo                      
-                    </a>
-                  </h6>
-                </div>
-                {% for catalogo in catalogos %}
-                <div>
-                  <h6>
-                    <a href="{% url 'tienda_catalogo' catalogo.nombre %}">
-                      {{catalogo.nombre}}
-                    </a>
-                  </h6>
-                  <ul>
-                    {% for categoria in catalogo.categorias %}
-                      <li>
-                        <a href="{% url 'tienda_categoria' catalogo.nombre categoria.nombre %}#tienda">{{categoria.nombre}}</a>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-                {% endfor %}
-                <!-- <div>
-                  <h6>
-                    <a href="{% url 'tienda_catalogo' 'Para Ellas' %}">
-                      Para Ellas
-                    </a>
-                  </h6>
-                  <ul>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                    <li>
-                      <a href="#">Sweater</a>
-                    </li>
-                  </ul>
-                </div> -->
+  <header>
+    <nav class="navbar navbar-expand-md fixed-top border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img class="logo" src="{% static 'assets/img/monasterio.jpeg' %}" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav m-auto">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="/">Conócenos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button">
+                Catalogo
+              </a>
+              <div class="categorias-movil" id="categorias-movil">
+                <ul class="categorias-lista">
+                  <li>
+                    <h6><a href="{% url 'tienda' %}">Todo</a></h6>
+                  </li>
+                  <li>
+                    <h6><a href="{% url 'tienda_catalogo' 'Para Ellos' %}">Para Ellos</a></h6>
+                    <ul>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h6><a href="{% url 'tienda_catalogo' 'Para Ellas' %}">Para Ellas</a></h6>
+                    <ul>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                      <li><a href="">Sweater</a></li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
-            </div>            
-          </div>          
-        </nav>			
-      </header>
-    <!-- End Header -->
-
-    <!-- ======= Content ======= -->
-    {% block content %}
-    {% endblock content %}
-    <!-- ======= End Content ======= --> 
-    <footer>
-      <div class="container">
-        <div class="row justify-content-md-center p-4">
-          <div class="col-md-auto">
-            <h6 class="text-center">
-              &copy; Copyright <strong><span>Cara Cruz</span></strong>. All Rights Reserved
-            </h6>            
-            </div>
+            </li>
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="{% url 'colecciones' %}">Colecciones</a> -->
+              <div class="dropdown">
+                <a class="dropdown-toggle nav-link" href="#" id="dropdownMenuLink0" data-bs-toggle="dropdown"
+                  style="font-size: 13px;">
+                  Colecciones
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink0">
+                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">ECO</a></li>
+                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Soft</a></li>
+                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Bordados</a></li>
+                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Guagas</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'servicio' %}">Servicio al cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'compromiso' %}">Nuestro Compromiso</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contactos' %}">Contáctanos</a>
+            </li>
+          </ul>
+          <div class="dropdown pe-3">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {% if request.user.is_anonymous %}
+              Invitado
+              {% else %}
+              {{request.user}}
+              {% endif %}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              {% if request.user.is_anonymous %}
+              <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+              {% else %}
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+              {% endif %}
+            </ul>
+          </div>
+          <a href="{% url 'carrito' %}" class="carrito--icon"><i class="bi bi-cart-fill"></i><span>0</span></a>
         </div>
       </div>
-    </footer>
-    <script src="{% static 'assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/main.js' %}"></script>
+      <div class="categorias" id="categorias">
+        <div class="container">
+          <div class="grid--tienda">
+            <div>
+              <h6>
+                <a href="{% url 'tienda' %}">
+                  Todo
+                </a>
+              </h6>
+            </div>
+            {% for catalogo in catalogos %}
+            <div>
+              <h6>
+                <a href="{% url 'tienda_catalogo' catalogo.nombre %}">
+                  {{catalogo.nombre}}
+                </a>
+              </h6>
+              <ul>
+                {% for categoria in catalogo.categorias %}
+                <li>
+                  <a
+                    href="{% url 'tienda_categoria' catalogo.nombre categoria.nombre %}#tienda">{{categoria.nombre}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Content ======= -->
+  {% block content %}
+  {% endblock content %}
+  <!-- ======= End Content ======= -->
+  <!-- ======= Chat ======= -->
+  <div class="elfsight">
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-e2f0e62c-d583-471a-839b-82ceeb9ee68d"></div>
+  </div>
+  <!-- ======= End Chat ======= -->
+  <footer>
+    <div class="container">
+      <div class="row justify-content-md-center p-4">
+        <div class="col-md-auto">
+          <h6 class="text-center">
+            &copy; Copyright <strong><span>Monasterio</span></strong>. All Rights Reserved
+          </h6>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/main.js' %}"></script>
 </body>
+
 </html>

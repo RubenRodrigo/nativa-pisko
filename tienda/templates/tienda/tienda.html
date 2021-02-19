@@ -11,38 +11,38 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/dama.jpg' %}" alt=""></img>
+					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/todo.JPG' %}" alt=""></img>
 
 					<div class="container">
 						<div class="carousel-caption text-start">
-							<h1>Damas.</h1>
+							<h1>Todo</h1>
 							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
 								metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#" role="button">Ver más</a></p>
+							<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="{% url 'tienda' %}" role="button">Ver más</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/caballero.jpg' %}" alt=""></img>
+					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/ellas.jpg' %}" alt=""></img>
 
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>Caballeros.</h1>
+							<h1>Para Ellas</h1>
 							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
 								metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#" role="button">Ver más</a></p>
+							<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="{% url 'tienda_catalogo' 'Para Ellas' %}" role="button">Ver más</a></p>
 						</div>
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/kid.jpg' %}" alt=""></img>
+					<img class="bd-placeholder-img" width="100%" src="{% static 'assets/img/ellos.jpg' %}" alt=""></img>
 
 					<div class="container">
 						<div class="carousel-caption text-end">
-							<h1>Niños.</h1>
+							<h1>Para Ellos</h1>
 							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
 								metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="#" role="button">Ver más</a></p>
+								<p><a class="btn btn-lg rounded-0 btn-outline-dark" href="{% url 'tienda_catalogo' 'Para Ellos' %}" role="button">Ver más</a></p>
 						</div>
 					</div>
 				</div>
@@ -57,22 +57,29 @@
 			</a>
 		</div>
 
-		<div class="container top">
+		<div class="container top">			
 			<div class="top__categoria">
 				<h3>{{catalogo.nombre}}</h3>
 			</div>
-			<div class="top__direccion">
-				<a>Home</a>
-				<span>/</span>
-				<a>{{catalogo.nombre}}</a>
-				<span>/</span>
-				<a class="active">{{categoria.nombre}}</a>
-			</div>
+      <div class="top__direccion">
+        <a href="{% url 'tienda' %}">Tienda</a>        
+				{% if catalogo %}
+					{% if categoria %}
+					<span>/</span>
+						<a href="{% url 'tienda_catalogo' catalogo.nombre %}">{{catalogo.nombre}}</a>
+					<span>/</span>
+					<a class="active" href="{% url 'tienda_categoria' catalogo.nombre categoria.nombre %}">{{categoria.nombre}}</a>
+					{% else %}
+						<span>/</span>
+						<a class="active" href="{% url 'tienda_catalogo' catalogo.nombre %}">{{catalogo.nombre}}</a>
+					{% endif %}
+				{% endif %}
+      </div>
 		</div>
 		<div class="container mb-4 masonry">
 			{% for producto in page_obj %}
 			<div class="masonry__item">
-				<a href="{% url 'producto' 1 %}">
+				<a href="{% url 'producto' producto.id %}">
 					{% with producto.productoimagen_set.all as imagenes %}
 					<img src="{{imagenes.0.imagenURL}}" alt="">
 					<button class="ver"><i class="bi bi-eye"></i></button>
@@ -83,169 +90,42 @@
 					</h5>					
 					<div class="info">
 						<h4 class="info__nombre">{{producto.nombre}}</h4>
-						<a class="info__descripcion" href="#">
+						<a class="info__descripcion" href="{% url 'tienda_categoria' producto.catalogo.nombre producto.categoria.nombre %}">
 							{{producto.categoria}}
 						</a>
 					</div>
 				</a>
 			</div>
-			{% endfor %}
-			<!-- <div class="masonry__item">
-				<img src="{% static 'assets/img/CleopatraB.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/Gooro_EspiralA.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/GorroOndasB.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/GorroOndasB.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/Gorro_Trenza.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/Gooro_EspiralA.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/Gorro_Trenza.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/GorroOndasB.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div>
-			<div class="masonry__item">
-				<img src="{% static 'assets/img/GorroOndasB.jpg' %}" alt="">
-				<h5 class="precio">
-					<span class="precio--fake">S/ 150</span>
-					<span class="precio--real">S/ 49</span>
-				</h5>
-				<button class="ver"><i class="bi bi-eye"></i></button>
-				<div class="info">
-					<h4 class="info__nombre">Product Title</h4>
-					<a class="info__descripcion" href="#">
-						Categoria
-					</a>
-				</div>
-			</div> -->
-		</div>
-		<div class="pagination">
-			<span class="step-links">
-				{% if page_obj.has_previous %}
-				<a href="?page=1">&laquo; first</a>
-				<a href="?page={{ page_obj.previous_page_number }}">previous</a>
-				{% endif %}
-
-				<span class="current">
-					Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-				</span>
-
-				{% if page_obj.has_next %}
-				<a href="?page={{ page_obj.next_page_number }}">next</a>
-				<a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-				{% endif %}
-			</span>
+			{% endfor %}		
 		</div>
 		<div class="container paginacion mt-4 mb-4r">
 			<nav>
 				<ul class="pagination justify-content-center">
+					{% if page_obj.has_previous %}
 					<li class="page-item">
-						<a class="page-link" href="#">Previous</a>
+						<a class="page-link first" href="?page=1">Primero</a>
 					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
 					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
+						<a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previo</a>
 					</li>
+					{% endif %}
+
+					{% for page in page_obj.paginator %}
+						{% if page.number == page_obj.number %}
+						<li class="page-item"><a class="page-link active" href="?page={{page.number}}">{{page.number}}</a></li>
+						{% else %}
+						<li class="page-item"><a class="page-link" href="?page={{page.number}}">{{page.number}}</a></li>
+						{% endif %}
+					{% endfor %}
+
+					{% if page_obj.has_next %}
+					<li class="page-item">
+						<a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link last" href="?page={{ page_obj.paginator.num_pages }}">Ultimo</a>
+					</li>
+					{% endif %}
 				</ul>
 			</nav>
 		</div>

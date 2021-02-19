@@ -3,6 +3,15 @@ body {
   font-family: 'Roboto', sans-serif !important;
 }
 
+a {
+  text-decoration: none;
+  color: #292828;
+}
+
+a:hover {
+  color: #292828;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -14,8 +23,8 @@ h1.title {
 }
 
 h1.title-page {
-  font-size: 5rem;
-  letter-spacing: 15px;
+  font-size: 4rem;
+  letter-spacing: 10px;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
@@ -43,13 +52,17 @@ h1.title-page {
           transform: translate(-50%, -50%);
 }
 
+div.eapps-widget {
+  position: inherit !important;
+}
+
 .navbar {
   background-color: #fff;
 }
 
 .navbar .logo {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 130px;
+  max-width: 130px;
 }
 
 .navbar .nav-item.active .nav-link {
@@ -67,6 +80,24 @@ h1.title-page {
 
 .navbar .nav-item .nav-link:hover {
   color: #9b8d4e !important;
+}
+
+.navbar .carrito--icon {
+  position: relative;
+}
+
+.navbar .carrito--icon i {
+  font-size: 30px;
+}
+
+.navbar .carrito--icon span {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  color: white;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 12px;
 }
 
 .masonry {
@@ -247,7 +278,7 @@ h1.title-page {
 }
 
 .grid--contactos i {
-  font-size: 30px;
+  font-size: 20px;
   color: #9b8d4e;
 }
 
@@ -316,8 +347,8 @@ h1.title-page {
   justify-items: center;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
 }
 
 .grid--tienda * {
@@ -349,20 +380,16 @@ h1.title-page {
   margin-bottom: 5px;
 }
 
+.proyectos .proyecto .card-body {
+  height: 350px;
+  overflow-y: auto;
+}
+
 .proyectos img {
-  max-height: 350px;
+  height: 250px;
   border-radius: 0px;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.proyectos a.proyecto-ver {
-  color: #9b8d4e;
-  cursor: pointer;
-}
-
-.proyectos a.proyecto-ver:hover {
-  font-weight: bold;
 }
 
 .top {
@@ -372,6 +399,10 @@ h1.title-page {
 
 .top__categoria {
   margin-bottom: 15px;
+}
+
+.top__direccion a {
+  text-decoration: none;
 }
 
 .top__direccion .active {
@@ -391,14 +422,19 @@ h1.title-page {
   font-weight: bold;
 }
 
-.paginacion .pagination .page-item a {
+.paginacion .pagination .page-item .page-link {
   border-radius: 0px;
   border: 1px solid #3b3b3b;
   color: #3b3b3b;
 }
 
-.paginacion .pagination .page-item a:hover {
+.paginacion .pagination .page-item .page-link:hover {
   border: 2px solid black;
+}
+
+.paginacion .pagination .page-item .first, .paginacion .pagination .page-item .last, .paginacion .pagination .page-item .active {
+  background: #3b3b3b;
+  color: white;
 }
 
 .carousel-item {
@@ -457,6 +493,20 @@ h1.title-page {
   border-radius: 15px;
   -webkit-box-shadow: 1px 1px 1px 1px #b3b0b0;
           box-shadow: 1px 1px 1px 1px #b3b0b0;
+}
+
+.producto__color.active {
+  border: 1px solid #5c5a5a;
+}
+
+.producto__cantidad select {
+  width: 80%;
+  background: rgba(128, 128, 128, 0.116);
+  border: none;
+  border-bottom: 2px solid black;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 footer {
@@ -637,6 +687,14 @@ footer {
   padding: 30px;
 }
 
+.conocenos__box.pri img {
+  height: 600px;
+}
+
+.conocenos__box.sec img {
+  height: 600px;
+}
+
 .conocenos__box {
   margin: 50px 0;
   background-color: #f1eddc;
@@ -661,25 +719,25 @@ footer {
 }
 
 .conocenos__box .box__img .img--principal {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-filter: blur(5px);
-          filter: blur(5px);
+  display: block;
 }
 
 .conocenos__box .box__img .img--secundaria {
-  position: absolute;
-  width: 500px;
-  height: 400px;
-  top: 50%;
-  right: 10%;
+  display: none;
 }
 
 .conocenos__box .box__img img {
   width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.conocenos__box .box__img:hover .img--principal {
+  display: none;
+}
+
+.conocenos__box .box__img:hover .img--secundaria {
+  display: block;
 }
 
 .conocenos__box .box__info {
@@ -897,5 +955,117 @@ footer {
 .bordados__info .info {
   text-align: center;
   color: #f1eddc;
+}
+
+/*--------------------------------------------------------------
+  # Servicio al cliente
+  --------------------------------------------------------------*/
+.servicio .container-servicio {
+  padding: 30px 20px;
+  min-height: 25rem;
+}
+
+.servicio h3 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #353535;
+  cursor: pointer;
+}
+
+.servicio h3:hover {
+  color: black;
+}
+
+.container-servicio .servicio-info {
+  max-height: 0;
+  -webkit-transition: max-height 0.5s ease-out;
+  transition: max-height 0.5s ease-out;
+  overflow: hidden;
+}
+
+.container-servicio .servicio-active {
+  max-height: 1000px;
+  -webkit-transition: max-height 0.5s ease-in;
+  transition: max-height 0.5s ease-in;
+}
+
+/*--------------------------------------------------------------
+  # Carrito
+  --------------------------------------------------------------*/
+.carrito {
+  min-height: 30rem;
+}
+
+.carrito--tabla table th,
+.carrito--tabla table td {
+  vertical-align: middle;
+}
+
+.carrito--tabla * {
+  color: black;
+}
+
+.producto--tabla .producto__imagen {
+  display: inline-block;
+  width: 80px;
+  height: 100px;
+}
+
+.producto--tabla .producto__imagen img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.producto--tabla .producto__nombre {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.producto--tabla .producto__delete {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+}
+
+.producto--tabla .producto__delete:hover {
+  background-color: black;
+}
+
+.producto--tabla .producto__delete:hover h4 {
+  color: white;
+}
+
+.producto--tabla .producto__cantidad button,
+.producto--tabla .producto__cantidad h6 {
+  display: inline-block;
+  padding: 10px;
+}
+
+.producto--tabla .producto__cantidad button {
+  width: 30px;
+  height: 100%;
+  border: none;
+}
+
+.producto--tabla .producto__cantidad button h3 {
+  margin: 0;
+}
+
+.producto--tabla .confirmar {
+  padding: 7px 0;
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  color: white;
+  background-color: black;
+}
+
+.producto--tabla .confirmar:hover {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=styles.css.map */
