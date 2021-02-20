@@ -1,11 +1,11 @@
 var deleteBtns = document.getElementsByClassName('producto__delete')
 var updateBtns = document.getElementsByClassName('update-cart')
-
+var confirmBtn = document.querySelector('.carrito .confirmar#confirmar')
+console.log(confirmBtn);
 if (deleteBtns.length > 0) {
     for (var i = 0; i < deleteBtns.length; i++) {
         deleteBtns[i].addEventListener('click', function () {
-            var ordenitemId = this.dataset.ordenitem
-            console.log('USER:', user);
+            var ordenitemId = this.dataset.ordenitem            
             if (user == 'AnonymousUser') {
                 deleteItemOrden(ordenitemId)
             } else {
@@ -90,11 +90,13 @@ function addCookieItem(productId, action, colorId, sizeId, quantity, context) {
                 item_cantidad.textContent = data.quantityItem
                 item_total.textContent = "S/ " + data.totalItem.toFixed(2)
                 carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+                confirmBtn.href = "https://wa.me/51983848610?text="+data.message
             } else {
                 item_cantidad.parentElement.parentElement.parentElement.remove();
                 carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+                confirmBtn.removeAttribute("href")
             }
-            carrito_cantidad.textContent = data.cartItems
+            carrito_cantidad.textContent = data.cartItems                        
         })
 }
 
@@ -135,11 +137,13 @@ function updateUserOrder(productId, action, colorId, sizeId, quantity, context) 
                 item_cantidad.textContent = data.quantityItem
                 item_total.textContent = "S/ " + data.totalItem.toFixed(2)
                 carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+                confirmBtn.href = "https://wa.me/51983848610?text="+data.message
             } else {
                 item_cantidad.parentElement.parentElement.parentElement.remove();
                 carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+                confirmBtn.removeAttribute("href")
             }
-            carrito_cantidad.textContent = data.cartItems
+            carrito_cantidad.textContent = data.cartItems            
         })
 
 }

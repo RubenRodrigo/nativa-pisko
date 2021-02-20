@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',    
     'nested_admin',
     'tienda.apps.TiendaConfig',
+    'colorfield'
 ]
 
 MIDDLEWARE = [

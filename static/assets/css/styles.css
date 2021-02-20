@@ -1060,6 +1060,7 @@ footer {
 }
 
 .producto--tabla .confirmar {
+  display: block;
   padding: 7px 0;
   font-size: 20px;
   font-weight: bold;
@@ -1067,6 +1068,7 @@ footer {
   border: none;
   color: white;
   background-color: black;
+  text-align: center;
 }
 
 .producto--tabla .confirmar:hover {

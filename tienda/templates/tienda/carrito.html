@@ -76,7 +76,11 @@
 							<td></td>
 							<td></td>
 							<td colspan="3">
-								<button class="confirmar">Confirmar Pago</button>
+								{% if cartItems > 0 %}
+								<a class="confirmar" id="confirmar" target="_blank" rel="noopener noreferrer" href="https://wa.me/51983848610?text={{message}}">Enviar Orden</a>
+								{% else %}
+								<a class="confirmar" id="confirmar" target="_blank" rel="noopener noreferrer" >Enviar Orden</a>
+								{% endif %}
 							</td>							
 						</tr>
 					</tbody>

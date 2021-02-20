@@ -60,6 +60,7 @@
     }
   }
   .confirmar {
+    display: block;
     padding: 7px 0;
     font-size: 20px;
     font-weight: bold;
@@ -67,6 +68,7 @@
     border: none;
     color: white;
     background-color: black;
+    text-align: center;
   }
   .confirmar:hover {
     text-decoration: underline;

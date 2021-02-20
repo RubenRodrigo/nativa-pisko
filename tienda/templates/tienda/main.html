@@ -49,8 +49,7 @@
       device = uuidv4()
     }
 
-    document.cookie = 'device=' + device + ';domain=;path=/'
-    console.log('{% csrf_token %}');
+    document.cookie = 'device=' + device + ';domain=;path=/'    
     var csrftoken = getCookie('csrftoken')
     if (csrftoken == null || csrftoken == undefined) {
       csrftoken = '{% csrf_token %}'

@@ -78,11 +78,11 @@
             {% for color in producto.productocolor_set.all %}
             {% if forloop.counter == 1 %}
             <div class="producto__color active">
-              <span class="color" data-color="{{color.color.id}}" style="background-color: #{{color.color.codigo}};"></span>
+              <span class="color" data-color="{{color.color.id}}" style="background-color: {{color.color.codigo}};"></span>
             </div>
             {% else %}
             <div class="producto__color">
-              <span class="color" data-color="{{color.color.id}}" style="background-color: #{{color.color.codigo}};"></span>
+              <span class="color" data-color="{{color.color.id}}" style="background-color: {{color.color.codigo}};"></span>
             </div>
             {% endif %}
 						{% endfor %}

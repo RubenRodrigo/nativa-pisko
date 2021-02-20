@@ -75,16 +75,19 @@ def logoutUser(request):
 
 def carrito(request):
     data = cartData(request)
-    cartItems = data['cartItems']
+    cartItems = data['cartItems']    
     orden = data['orden']
-    items = data['items']
+    items = data['items']    
+    new_message = orden.get_cart_data
 
     context = {
         'items':items,
         'orden':orden,         
         'cartItems':cartItems,
-        'catalogos':catalogos
-    }    
+        'catalogos':catalogos,
+        'message': new_message
+    }
+
     return render(request, 'tienda/carrito.html', context)
 
 def index(request):
@@ -285,12 +288,14 @@ def updateItem(request):
     ordenItem.save()
     if(ordenItem.cantidad <= 0):
         ordenItem.delete()
+    new_message = orden.get_cart_data
 
     context = {
         'cartItems': orden.get_cart_items,
         'totalItems': orden.get_cart_total,
         'quantityItem': ordenItem.cantidad,
-        'totalItem': ordenItem.get_total        
+        'totalItem': ordenItem.get_total,
+        'message': new_message
     }
 
     return JsonResponse(context, safe=False)
