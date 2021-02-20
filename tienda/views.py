@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from .models import *
+from .utils import cartData
 from .forms import CreateUserForm
 import json
 
@@ -73,20 +74,35 @@ def logoutUser(request):
     return redirect('login')
 
 def carrito(request):
-    if request.user.is_authenticated:
-        cliente = request.user.cliente
-        orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)
-        items = orden.ordenitem_set.all()
-    context = {'items':items, 'orden':orden, 'catalogos':catalogos}    
+    data = cartData(request)
+    cartItems = data['cartItems']
+    orden = data['orden']
+    items = data['items']
+
+    context = {
+        'items':items,
+        'orden':orden,         
+        'cartItems':cartItems,
+        'catalogos':catalogos
+    }    
     return render(request, 'tienda/carrito.html', context)
 
 def index(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
     context = {        
-        'catalogos':catalogos
-    }
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
+    }    
     return render(request, 'tienda/index.html', context)
 
 def tienda(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+
     productos = Producto.objects.all()
 
     paginator = Paginator(productos, paginate)
@@ -95,13 +111,17 @@ def tienda(request):
 
     context = {
         'page_obj':page_obj,
-        'catalogos':catalogos
-    }
-    for page in page_obj.paginator:
-        print(page.number)
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
+    }    
     return render(request, tienda_template, context)
 
 def tienda_catalogo(request, catalogo_name):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+
     catalogo = get_object_or_404(Catalogo, nombre=catalogo_name)
         
     productos = catalogo.producto_set.all()
@@ -113,16 +133,21 @@ def tienda_catalogo(request, catalogo_name):
     context = {
         'catalogo':catalogo,
         'catalogos':catalogos,
-        'page_obj':page_obj
+        'page_obj':page_obj,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, tienda_template, context)
 
 def tienda_categoria(request, catalogo_name, categoria_name):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+
     catalogo = get_object_or_404(Catalogo, nombre=catalogo_name)
     categoria = get_object_or_404(Categoria, nombre=categoria_name, catalogo=catalogo)
         
     productos = categoria.producto_set.all()
-
     paginator = Paginator(productos, paginate)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -131,41 +156,104 @@ def tienda_categoria(request, catalogo_name, categoria_name):
         'catalogo':catalogo,
         'categoria':categoria,
         'catalogos':catalogos,
-        'page_obj':page_obj
+        'page_obj':page_obj,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, tienda_template, context)
 
 
 def colecciones(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
     context = {        
-        'catalogos':catalogos
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, 'tienda/colecciones.html', context)
 
+def coleccion(request, coleccion):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+    context = {                
+        'catalogos':catalogos,
+        'cartItems':cartItems
+        ,'cliente': cliente
+    }
+    if coleccion == "eco":
+        return render(request, 'tienda/colecciones/eco.html', context)
+    elif coleccion == "soft":
+        return render(request, 'tienda/colecciones/soft.html', context)
+    elif coleccion == "bordados":
+        return render(request, 'tienda/colecciones/bordados.html', context)    
+    elif coleccion == "guaguas":
+        return render(request, 'tienda/colecciones/guaguas.html', context)    
+    else:
+        return render(request, 'tienda/colecciones.html', context)
+
 def compromiso(request):
-    context = {        
-        'catalogos':catalogos
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+    context = {                
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, 'tienda/compromiso.html', context)
 
+def compromiso_tipo(request, compromiso):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+    context = {                
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
+    }
+    if coleccion == "rostros":
+        return render(request, 'tienda/compromiso/rostros.html', context)
+    elif coleccion == "manos":
+        return render(request, 'tienda/compromiso/manos.html', context)    
+    else:
+        return render(request, 'tienda/compromiso.html', context)
+
 def producto(request, producto_id):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
     producto = get_object_or_404(Producto, pk=producto_id)
     productos={producto}
-    context = {
+    context = {        
         'productos': productos,
-        'catalogos':catalogos
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, 'tienda/producto.html', context)
 
 def servicio(request):
-    context = {        
-        'catalogos':catalogos
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+    context = {                
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, 'tienda/servicio.html', context)
 
 def contactos(request):
-    context = {        
-        'catalogos':catalogos
+    data = cartData(request)
+    cartItems = data['cartItems']
+    cliente = data['cliente']
+    context = {                
+        'catalogos':catalogos,
+        'cartItems':cartItems,
+        'cliente': cliente
     }
     return render(request, 'tienda/contactos.html', context)
 
@@ -177,26 +265,19 @@ def updateItem(request):
     tallaId = data['sizeId']
     cantidad = data['quantity']
     action = data['action']
+    try:
+        cliente = request.user.cliente
+    except:
+        device = request.COOKIES['device']
+        cliente, created = Cliente.objects.get_or_create(device=device)
 
-    color = Color.objects.get(id=colorId)
-    talla = Talla.objects.get(id=tallaId)
-    cliente = request.user.cliente
     product = Producto.objects.get(id=productId)
-    producto_color = product.productocolor_set.get(color=color)
-    producto_talla = product.productotalla_set.get(talla=talla)
-
-    print(cliente)
-    print('Action', action)
-    print('Producto', product)
-    print('color', color)
-    print('talla', talla)
-    print('producto_color', producto_color)
-    print('producto_talla', producto_talla)
-    print('cantidad', cantidad)
+    producto_color = product.productocolor_set.get(color=colorId)
+    producto_talla = product.productotalla_set.get(talla=tallaId)
 
     orden, created = Orden.objects.get_or_create(cliente=cliente, completo=False)        
     ordenItem, created = OrdenItem.objects.get_or_create(orden=orden, producto=product, producto_color=producto_color, producto_talla=producto_talla)
-    ordenItem
+    
     if action == 'add':        
         ordenItem.cantidad = (ordenItem.cantidad + int(cantidad))
     elif action == 'remove':
@@ -206,8 +287,10 @@ def updateItem(request):
         ordenItem.delete()
 
     context = {
-        'quantity': orden.get_cart_items,
+        'cartItems': orden.get_cart_items,
+        'totalItems': orden.get_cart_total,
         'quantityItem': ordenItem.cantidad,
+        'totalItem': ordenItem.get_total        
     }
 
     return JsonResponse(context, safe=False)

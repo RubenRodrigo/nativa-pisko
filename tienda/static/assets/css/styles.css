@@ -965,10 +965,14 @@ footer {
   min-height: 25rem;
 }
 
+.servicio .container-servicio * {
+  font-size: 15px;
+}
+
 .servicio h3 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #353535;
   cursor: pointer;
+  font-size: 22px !important;
 }
 
 .servicio h3:hover {

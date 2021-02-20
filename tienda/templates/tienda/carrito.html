@@ -30,7 +30,7 @@
 										{% endwith %}
 									</div>
 								</th>
-								<td class="producto__precio">S/{{ item.producto.precio}}</td>
+								<td class="producto__precio">S/{{ item.producto.precio|floatformat:2}}</td>
 								<td class="producto_color" data-color="{{item.producto_color.color.id}}">{{item.producto_color}}</td>
 								<td class="producto__talla" data-talla="{{item.producto_talla.talla.id}}">{{item.producto_talla}}</td>
 								<td>
@@ -54,7 +54,7 @@
 										</button>
 									</div>
 								</td>
-								<td class="producto__total">S/ {{item.get_total}}</td>
+								<td class="producto__total">S/ {{item.get_total|floatformat:2}}</td>
 								<td>
 									<button class="producto__delete" data-ordenitem={{item.id}}><h4>X</h4></button>
 								</td>
@@ -66,9 +66,9 @@
 							</th>
 							<td></td>
 							<td></td>
+							<td></td>							
 							<td></td>
-							<td id="carrito__total">S/ {{orden.get_cart_total}}</td>
-							<td></td>
+							<td id="carrito__total">S/ {{orden.get_cart_total|floatformat:2}}</td>
 						</tr>
 						<tr>
 							<th scope="row"></th>

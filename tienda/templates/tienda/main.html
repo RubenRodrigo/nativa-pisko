@@ -24,7 +24,7 @@
 
   <!-- ======= Custom CSSS ======= -->
   <link href="{% static 'assets/css/styles.css' %}" rel="stylesheet">
-  <script type="text/javascript">
+  <script type="text/javascript">  
     function getCookie(name) {
       var cookieValue = null;
       if (document.cookie && document.cookie !== '') {
@@ -40,21 +40,21 @@
       }
       return cookieValue;
     }
-    function uuidv4() {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
+    function uuidv4() {      
+      return '{{cliente.device}}'
     }
-
     let device = getCookie('device')
 
     if (device == null || device == undefined) {
       device = uuidv4()
     }
 
-    document.cookie = 'device' + device + ';domain=;path=/'
+    document.cookie = 'device=' + device + ';domain=;path=/'
+    console.log('{% csrf_token %}');
     var csrftoken = getCookie('csrftoken')
+    if (csrftoken == null || csrftoken == undefined) {
+      csrftoken = '{% csrf_token %}'
+    }
     var user = '{{request.user}}'
   </script>
 </head>
@@ -115,10 +115,10 @@
                   Colecciones
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink0">
-                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">ECO</a></li>
-                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Soft</a></li>
-                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Bordados</a></li>
-                  <li><a class="dropdown-item" href="{% url 'colecciones' %}" style="font-size: 13px;">Guagas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'coleccion' 'eco' %}" style="font-size: 13px;">ECO</a></li>
+                  <li><a class="dropdown-item" href="{% url 'coleccion' 'soft' %}" style="font-size: 13px;">Soft</a></li>
+                  <li><a class="dropdown-item" href="{% url 'coleccion' 'bordados' %}" style="font-size: 13px;">Bordados</a></li>
+                  <li><a class="dropdown-item" href="{% url 'coleccion' 'guaguas' %}" style="font-size: 13px;">Guaguas</a></li>
                 </ul>
               </div>
             </li>
@@ -126,7 +126,16 @@
               <a class="nav-link" href="{% url 'servicio' %}">Servicio al cliente</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'compromiso' %}">Nuestro Compromiso</a>
+              <div class="dropdown">
+                <a class="dropdown-toggle nav-link" href="#" id="dropdownMenuLink0" data-bs-toggle="dropdown"
+                  style="font-size: 13px;">
+                  Nuestro Compromiso
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink0">
+                  <li><a class="dropdown-item" href="{% url 'compromiso_tipo' 'rostros' %}" style="font-size: 13px;">Rostros</a></li>
+                  <li><a class="dropdown-item" href="{% url 'compromiso_tipo' 'manos' %}" style="font-size: 13px;">Manos</a></li>
+                </ul>
+              </div>              
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'contactos' %}">Contáctanos</a>
@@ -149,7 +158,7 @@
               {% endif %}
             </ul>
           </div>
-          <a href="{% url 'carrito' %}" class="carrito--icon"><i class="bi bi-cart-fill"></i><span>0</span></a>
+          <a href="{% url 'carrito' %}" class="carrito--icon"><i class="bi bi-cart-fill"></i><span>{{cartItems}}</span></a>
         </div>
       </div>
       <div class="categorias" id="categorias">
@@ -210,5 +219,4 @@
   <script src="{% static 'assets/vendor/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'assets/js/main.js' %}"></script>
 </body>
-
 </html>

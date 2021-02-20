@@ -78,19 +78,13 @@
 					<span class="visually-hidden">Next</span>
 				</a>
 			</div>
+		</div>
 
-		</div>
-		<div class="coleccion" id="eco">
-			{% include "tienda/colecciones/eco.html" %}
-		</div>
-		<div class="coleccion" id="soft">
-			{% include "tienda/colecciones/soft.html" %}
-		</div>
-		<div class="coleccion" id="bordados">
-			{% include "tienda/colecciones/bordados.html" %}
-		</div>
-		<div class="coleccion" id="guagas">
-			{% include "tienda/colecciones/guagas.html" %}
+		<div class="coleccion" id="eco">			
+			<!-- ======= Content ======= -->
+			{% block coleccion %}
+			{% endblock coleccion %}
+			<!-- ======= End Content ======= -->
 		</div>
 	</section>
 </main>

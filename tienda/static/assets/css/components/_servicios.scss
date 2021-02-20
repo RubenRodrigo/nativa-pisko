@@ -5,12 +5,15 @@
   .servicio .container-servicio{
     padding: 30px 20px;
     min-height: 25rem;
+    *{
+      font-size: 15px;
+    }
   }
   
   .servicio h3{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(53, 53, 53);
     cursor: pointer;
+    font-size: 22px !important;
   }
   .servicio h3:hover{
     color: rgb(0, 0, 0);

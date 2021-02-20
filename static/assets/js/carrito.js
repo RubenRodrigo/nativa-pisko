@@ -7,7 +7,7 @@ if (deleteBtns.length > 0) {
             var ordenitemId = this.dataset.ordenitem
             console.log('USER:', user);
             if (user == 'AnonymousUser') {
-                addCookieItem(productId, action, colorId, sizeId, quantity)
+                deleteItemOrden(ordenitemId)
             } else {
                 deleteItemOrden(ordenitemId)
             }
@@ -25,7 +25,7 @@ if (updateBtns.length > 0) {
             var quantity = 1
             console.log('USER:', user);
             if (user == 'AnonymousUser') {
-                addCookieItem(productId, action, colorId, sizeId, quantity)
+                addCookieItem(productId, action, colorId, sizeId, quantity, this)
             } else {
                 updateUserOrder(productId, action, colorId, sizeId, quantity, this)
             }
@@ -45,49 +45,58 @@ function deleteItemOrden(ordenitemId) {
             'ordenitemId': ordenitemId,
         })
     })
-        .then((respose) => {
-            return respose.json()
+        .then((response) => {
+            return response.json()
         })
         .then((data) => {
             location.reload()
         })
 }
-// function getSize(e) {    
-//     var size = e.parentElement.parentElement.querySelector('.producto-tallas .talla.active')    
-//     console.log("SIZE",size);
-//     return size.dataset.size
-// }
-// function getColor(e) {
-//     var color = e.parentElement.parentElement.querySelector('.producto-colores .colores--prenda#active button')    
-//     console.log("COLOR",color);
-//     return color.dataset.color
-// }
-// function getQuantity(e) {
-//     var quantity = e.parentElement.parentElement.querySelector('.producto-cantidad .cantidad')    
-//     console.log("Quantity",quantity);
-//     return quantity.value
-// }
 
-// function addCookieItem(productId, action, colorId, sizeId, quantity) {
-//     console.log('Not logged in')
-//     // if (action == 'add') {
-//     //     if (cart[productId] == undefined) {
-//     //        cart[productId] = {'quantity': 1}
-//     //     } else {
-//     //         cart[productId]['quantity'] += 1
-//     //     }
-//     // }
-//     // if (action == 'remove') {
-//     //     cart[productId]['quantity'] -= 1
-//     //     if (cart[productId]['quantity'] <= 0) {
-//     //         console.log('Remove Item');
-//     //         delete cart[productId]
-//     //     }
-//     // }
+function addCookieItem(productId, action, colorId, sizeId, quantity, context) {
+    console.log('Not logged in')
+    var url = '/update_item/'
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify({
+            'productId': productId,
+            'colorId': colorId,
+            'sizeId': sizeId,
+            'quantity': quantity,
+            'action': action
+        })
+    })
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            // Context of row 
+            var orden_item_cantidad = context.parentElement
+            var orden_item_total = orden_item_cantidad.parentElement.parentElement
 
-//     // console.log('Cart:',cart);
-//     // document.cookie = 'cart='+ JSON.stringify(cart) + ";domain=;path=/"
-// }
+            // Context of fields
+            var item_cantidad = orden_item_cantidad.querySelector('.producto__cantidad-item')
+            var item_total = orden_item_total.querySelector('.producto__total')
+
+            // Global context of cart_items
+            var carrito_total = document.querySelector('#carrito__total')
+            var carrito_cantidad = document.querySelector('.carrito--icon span')
+
+            if (data.quantityItem > 0) {
+                item_cantidad.textContent = data.quantityItem
+                item_total.textContent = "S/ " + data.totalItem.toFixed(2)
+                carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+            } else {
+                item_cantidad.parentElement.parentElement.parentElement.remove();
+                carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
+            }
+            carrito_cantidad.textContent = data.cartItems
+        })
+}
 
 function updateUserOrder(productId, action, colorId, sizeId, quantity, context) {
 
@@ -106,22 +115,31 @@ function updateUserOrder(productId, action, colorId, sizeId, quantity, context) 
             'action': action
         })
     })
-        .then((respose) => {
-            return respose.json()
+        .then((response) => {
+            return response.json()
         })
         .then((data) => {
-            console.log(data)
+            // Context of row 
             var orden_item_cantidad = context.parentElement
+            var orden_item_total = orden_item_cantidad.parentElement.parentElement
+
+            // Context of fields
             var item_cantidad = orden_item_cantidad.querySelector('.producto__cantidad-item')
+            var item_total = orden_item_total.querySelector('.producto__total')
+
+            // Global context of cart_items
             var carrito_total = document.querySelector('#carrito__total')
             var carrito_cantidad = document.querySelector('.carrito--icon span')
+
             if (data.quantityItem > 0) {
                 item_cantidad.textContent = data.quantityItem
+                item_total.textContent = "S/ " + data.totalItem.toFixed(2)
+                carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
             } else {
                 item_cantidad.parentElement.parentElement.parentElement.remove();
-                carrito_total.textContent = "S/ 0"
+                carrito_total.textContent = "S/ " + data.totalItems.toFixed(2)
             }
-            carrito_cantidad.textContent = data.quantity
+            carrito_cantidad.textContent = data.cartItems
         })
 
 }
